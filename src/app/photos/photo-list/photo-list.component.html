@@ -1,0 +1,15 @@
+<h1> {{title}} </h1>
+<app-search
+  (typing)="filter = $event"
+  [value] = "filter">
+</app-search>
+<p class="text-center text-muted" *ngIf="!photos.length">
+  Nada para mostrar!!
+</p>
+
+<app-photos [photos]="photos | filterByDescription: filter"> </app-photos>
+
+<app-load-button
+  [hasMore] = "hasMore"
+  (click) ="load()">
+ </app-load-button>
